@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="member">
+
+	<select id="selectMember">
+		select * from mymember
+	</select>
+	
+	<resultMap type="vo.MemberVO" id="memMap">
+		<result column="mem_id" property="memId" />
+		<result column="mem_pass" property="memPass" />
+		<result column="mem_name" property="memName" />
+		<result column="mem_tel" property="memTel" />
+		<result column="mem_addr" property="memAddr" />
+		<result column="mem_photo" property="memPhoto" />
+	</resultMap>
+
+</mapper>
