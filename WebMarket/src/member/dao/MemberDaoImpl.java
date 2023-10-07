@@ -40,4 +40,49 @@ public class MemberDaoImpl implements IMemberDao {
 		
 	}
 
+	@Override
+	public boolean checkMember(String memId) {
+		
+		boolean isExist = false;
+		
+		SqlSession session = MyBatisUtil.getInstance(true);
+		
+		try {
+			int cnt = session.selectOne("member.checkMember", memId);
+			
+			if(cnt > 0) {
+				isExist = true;
+			}
+			
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+		return isExist;
+	}
+
+	@Override
+	public int insertMember(MemberVO memberVO) {
+
+		SqlSession session = MyBatisUtil.getInstance();
+		
+		int cnt = 0;
+		
+		try {
+			cnt = session.insert("member.insertMember", memberVO);
+			if(cnt > 0) {
+				session.commit();
+			}
+		} catch (PersistenceException e) {
+			session.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+
+		return cnt;
+	}
+
 }

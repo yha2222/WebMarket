@@ -4,8 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	SessionMemInfo info = SessionMemInfo.getInstance();
-
 	List<MemberVO> memberList = (List<MemberVO>)request.getAttribute("memberList");
 %>
 <!DOCTYPE html>
@@ -62,4 +60,18 @@ button{
 		</tbody>
 	</table>
 </body>
+<script>
+
+<%
+if(session.getAttribute("isSuccess") != null){
+	if(session.getAttribute("isSuccess").equals("ok")){
+		session.removeAttribute("isSuccess");
+		%>alert("회원가입 성공");<%	
+	} else if(session.getAttribute("isSuccess").equals("fail")){
+		session.removeAttribute("isSuccess");
+		%>alert("회원가입 실패");<%
+	}
+}
+%>
+</script>
 </html>

@@ -5,8 +5,8 @@
       select * from mymember
    </select>
    
-   <select id="getMember" resultMap="mvoMap">
-      select * from mymember where mem_Id = #{memId} 
+   <select id="checkMember" resultType="Integer">
+      select count(*) as cnt from mymember where mem_Id = #{memId} 
    </select>
    
    <insert id="insertMember" parameterType="mvo">
@@ -21,8 +21,8 @@
       update mymember
       set mem_pass = #{memPass},
           mem_name = #{memName},
-             mem_tel = #{memTel},
-            mem_addr = #{memAddr},
+          mem_tel = #{memTel},
+          mem_addr = #{memAddr},
           mem_photo = #{memPhoto}
       where mem_id = #{memId}
    </update>
