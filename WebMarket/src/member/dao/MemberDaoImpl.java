@@ -85,4 +85,22 @@ public class MemberDaoImpl implements IMemberDao {
 		return cnt;
 	}
 
+	@Override
+	public MemberVO getMember(String memId) {
+		
+		SqlSession session = MyBatisUtil.getInstance(true);
+		MemberVO memberVO = null;
+		
+		try {
+			memberVO = session.selectOne("member.getMember", memId);
+		} catch (PersistenceException e) {
+			session.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+		return memberVO;
+	}
+
 }

@@ -50,7 +50,7 @@ button{
 		<tbody>
 			<%for (MemberVO memVO : memberList) { %>
 			<tr>
-				<td><a href="#"><%=memVO.getMemId()%></a></td>
+				<td><a href="/member/detail.do?memId=<%=memVO.getMemId()%>"><%=memVO.getMemId()%></a></td>
 				<td><%=memVO.getMemPass() %></td>
 				<td><%=memVO.getMemName() %></td>
 				<td><%=memVO.getMemTel() %></td>

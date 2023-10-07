@@ -37,4 +37,9 @@ public class MemberServiceImpl implements IMemberService {
 		return memberDao.insertMember(memberVO); 
 	}
 
+	@Override
+	public MemberVO getMember(String memId) {
+		return memberDao.getMember(memId);
+	}
+
 }

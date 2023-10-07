@@ -12,7 +12,6 @@ td {
 	margin: 0;
 	font-size: 20px;
 }
-
 .btns {
 	text-align: center;
 	font-size: 20px;

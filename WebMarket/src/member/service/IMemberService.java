@@ -11,4 +11,6 @@ public interface IMemberService {
 	public boolean checkMember(String memId);
 
 	public int insertMember(MemberVO memberVO);
+
+	public MemberVO getMember(String memId);
 }
