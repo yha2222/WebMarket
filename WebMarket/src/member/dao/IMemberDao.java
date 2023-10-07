@@ -6,5 +6,5 @@ import vo.MemberVO;
 
 public interface IMemberDao {
 
-	public List<MemberVO> getMemberList();
+	public List<MemberVO> selectAll();
 }

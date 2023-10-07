@@ -1,5 +1,6 @@
 package member.cont;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,10 +20,10 @@ public class MemberList extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		IMemberService memberService = MemberServiceImpl.getInstance();
-		List<MemberVO> memberList = memberService.getMemberList();
-		req.setAttribute("memberList", memberList);
+		List<vo.MemberVO> memberList = memberService.selectAll();
 		
-		System.out.println("됨???");
+		req.setAttribute("memberList", memberList);
+		System.out.println(memberList);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/memberList.jsp");
 		dispatcher.forward(req, resp);

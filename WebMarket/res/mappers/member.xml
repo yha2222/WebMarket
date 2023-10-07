@@ -1,17 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-	<select id="selectMember">
-		select * from mymember
-	</select>
-	
-	<resultMap type="vo.MemberVO" id="memMap">
-		<result column="mem_id" property="memId" />
-		<result column="mem_pass" property="memPass" />
-		<result column="mem_name" property="memName" />
-		<result column="mem_tel" property="memTel" />
-		<result column="mem_addr" property="memAddr" />
-		<result column="mem_photo" property="memPhoto" />
-	</resultMap>
-
+   <select id="getMemList" resultMap="mvoMap">
+      select * from mymember
+   </select>
+   
+   <select id="getMember" resultMap="mvoMap">
+      select * from mymember where mem_Id = #{memId} 
+   </select>
+   
+   <insert id="insertMember" parameterType="mvo">
+      insert into mymember values(#{memId}, #{memPass}, #{memName}, #{memTel}, #{memAddr}, #{memPhoto})
+   </insert>
+   
+   <delete id="deleteMember" parameterType="String">
+      delete from mymember where mem_id = #{memId}
+   </delete>
+   
+   <update id="updateMember" parameterType="mvo">
+      update mymember
+      set mem_pass = #{memPass},
+          mem_name = #{memName},
+             mem_tel = #{memTel},
+            mem_addr = #{memAddr},
+          mem_photo = #{memPhoto}
+      where mem_id = #{memId}
+   </update>
+   
+   
+   <resultMap type="mvo" id="mvoMap">
+      <result property="memId" column="mem_id"/>
+        <result property="memPass" column="mem_pass"/>
+        <result property="memName" column="mem_name"/>
+        <result property="memTel" column="mem_tel"/>
+        <result property="memAddr" column="mem_addr"/>
+        <result property="memPhoto" column="mem_photo"/>
+   </resultMap>
 </mapper>

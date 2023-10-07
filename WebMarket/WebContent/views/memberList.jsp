@@ -37,7 +37,7 @@ button{
 		<thead>
 			<tr class="col-button">
 				<td colspan="5">
-				<button>회원추가</button>
+				<button type="button" onclick="location.href='../views/memberAdd.jsp';" >회원추가</button>
 				</td>
 			</tr>
 			
@@ -52,7 +52,7 @@ button{
 		<tbody>
 			<%for (MemberVO memVO : memberList) { %>
 			<tr>
-				<td><%=memVO.getMemId()%></td>
+				<td><a href="#"><%=memVO.getMemId()%></a></td>
 				<td><%=memVO.getMemPass() %></td>
 				<td><%=memVO.getMemName() %></td>
 				<td><%=memVO.getMemTel() %></td>

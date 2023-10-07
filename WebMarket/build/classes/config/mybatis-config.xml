@@ -10,7 +10,7 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="vo.MemberVO" alias="memvo" />
+		<typeAlias type="vo.MemberVO" alias="mvo" />
 	</typeAliases>
 	
 	<environments default="dev">
@@ -21,8 +21,6 @@
 				<property name="url" value="${url}" />
 				<property name="username" value="${username}" />
 				<property name="password" value="${password}" />
-				<property name="poolMaximumActiveConnections" value="2" /><!-- 활성화된 최대 커넥션 수 -->
-				<property name="poolMaximumIdleConnections" value="2" /><!-- 유휴상태에서 최대 커넥션 수 --> 
 			</dataSource>
 		</environment>
 	</environments>

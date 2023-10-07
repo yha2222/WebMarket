@@ -18,7 +18,7 @@ div{
 <body>
 
 	<div>
-		<a class="showMem" href="../member/list.do" >회원 목록 보기</a>
+		<a class="showMem" href="../member/list.do" >회원 목록 보기</a> <!-- ../member/list.do -->
 	</div>
 </body>
 </html>

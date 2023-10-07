@@ -23,8 +23,8 @@ public class MemberServiceImpl implements IMemberService {
 	}
 
 	@Override
-	public List<MemberVO> getMemberList() {
-		return memberDao.getMemberList();
+	public List<MemberVO> selectAll() {
+		return memberDao.selectAll();
 	}
 
 }

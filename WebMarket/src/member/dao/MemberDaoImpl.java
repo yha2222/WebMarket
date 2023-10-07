@@ -25,14 +25,13 @@ public class MemberDaoImpl implements IMemberDao {
 	}
 
 	@Override
-	public List<MemberVO> getMemberList() {
-		SqlSession session = MyBatisUtil.getInstance(true);
+	public List<MemberVO> selectAll() {
 		List<MemberVO> memberList = new ArrayList<>();
+		SqlSession session = MyBatisUtil.getInstance();
 		
 		try {
-			memberList = session.selectList("member.selectMember");
+			memberList = session.selectList("member.getMemList");
 		} catch (PersistenceException e) {
-			session.rollback();
 			e.printStackTrace();
 		}finally {
 			session.close();

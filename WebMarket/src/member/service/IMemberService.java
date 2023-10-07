@@ -6,5 +6,5 @@ import vo.MemberVO;
 
 public interface IMemberService {
 
-	public List<MemberVO> getMemberList();
+	public List<MemberVO> selectAll();
 }
