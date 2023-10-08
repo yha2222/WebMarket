@@ -103,4 +103,49 @@ public class MemberDaoImpl implements IMemberDao {
 		return memberVO;
 	}
 
+	@Override
+	public int updateMember(MemberVO memVO) {
+		
+		SqlSession session = MyBatisUtil.getInstance();
+		int cnt = 0;
+		
+		try {
+			cnt = session.update("member.updateMember", memVO);
+			
+			if(cnt > 0) {
+				session.commit();
+			}
+		} catch (PersistenceException e) {
+			session.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+		return cnt;
+	}
+
+	@Override
+	public int deleteMember(String memId) {
+		
+		SqlSession session = MyBatisUtil.getInstance(true);
+		int cnt = 0;
+		
+		try {
+			cnt = session.insert("member.deleteMember", memId);
+			
+			if(cnt > 0) {
+				session.commit();
+			}
+			
+		} catch (PersistenceException e) {
+			session.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+		return cnt;
+	}
+
 }

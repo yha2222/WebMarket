@@ -20,7 +20,7 @@ import member.service.MemberServiceImpl;
 import vo.MemberVO;
 
 @MultipartConfig
-@WebServlet("/member/memInsert.do")
+@WebServlet("/member/insert.do")
 public class InsertMember extends HttpServlet {
 
 	@Override

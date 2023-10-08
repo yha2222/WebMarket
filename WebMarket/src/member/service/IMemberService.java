@@ -13,4 +13,9 @@ public interface IMemberService {
 	public int insertMember(MemberVO memberVO);
 
 	public MemberVO getMember(String memId);
+
+	public int updateMember(MemberVO memVO);
+
+	public int deleteMember(String memId);
+
 }

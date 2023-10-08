@@ -63,6 +63,26 @@ button{
 <script>
 
 <%
+if(session.getAttribute("dlisSuccess") != null){
+	if(session.getAttribute("dlisSuccess").equals("ok")){
+		session.removeAttribute("dlisSuccess");
+		%>alert("회원 정보 삭제 성공");<%	
+	} else if(session.getAttribute("dlisSuccess").equals("fail")){
+		session.removeAttribute("dlisSuccess");
+		%>alert("회원 정보 삭제 실패");<%
+	}
+}
+
+if(session.getAttribute("udisSuccess") != null){
+	if(session.getAttribute("udisSuccess").equals("ok")){
+		session.removeAttribute("udisSuccess");
+		%>alert("회원 정보 수정 성공");<%	
+	} else if(session.getAttribute("udisSuccess").equals("fail")){
+		session.removeAttribute("udisSuccess");
+		%>alert("회원 정보 수정 실패");<%
+	}
+}
+
 if(session.getAttribute("isSuccess") != null){
 	if(session.getAttribute("isSuccess").equals("ok")){
 		session.removeAttribute("isSuccess");
@@ -72,6 +92,8 @@ if(session.getAttribute("isSuccess") != null){
 		%>alert("회원가입 실패");<%
 	}
 }
+
+
 %>
 </script>
 </html>

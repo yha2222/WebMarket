@@ -20,14 +20,16 @@ td {
 </head>
 <body>
 	<h1>회원 정보 입력 폼</h1>
-	<form name="fileForm" action="/member/memInsert.do" method="post"
+	<form name="fileForm" action="/member/insert.do" method="post"
 		enctype="multipart/form-data">
 		<table>
 			<tbody>
 				<tr>
 					<td>회원 ID</td>
-					<td><input type="text" name="memId" />
-						<button type="submit" class="idCheck">중복확인</button></td>
+					<td>
+						<input type="text" name="memId" />
+						<button type="submit" class="idCheck">중복확인</button>
+					</td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -60,7 +62,7 @@ td {
 				<tr>
 					<td class="btns" colspan="2">
 						<button type="submit" id="memAdd">저장</button>
-						<input type="button" value="취소" />
+						<input type="button" value="취소" onclick="location.href='../member/list.do'" />
 						<input type="button" value="목록으로" onclick="location.href='../member/list.do'" />
 					</td>
 				</tr>

@@ -1,5 +1,4 @@
 <%@page import="vo.MemberVO"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -9,12 +8,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>memberDetail</title>
 <style>
 table{
 	border: 1px solid blue;
 }
-
 tr > td > div > img{
 	margin-left: 30%;
 	width: 300px;
@@ -64,12 +62,25 @@ tr > td > div > img{
 				</tr>
 				<tr>
 					<td class="btns cont" colspan="2">
-						<button type="submit" >수정</button>
-						<input type="button" value="삭제" />
-						<input type="button" value="회원목록" onclick="location.href='../member/list.do'" />
+						<button type="submit" onclick="location.href='../member/update.do?memId=<%=memVO.getMemId() %>';" >수정</button>
+						<input type="button" value="삭제" onclick="location.href='../member/delete.do?memId=<%=memVO.getMemId() %>';" />
+						<input type="button" value="목록으로" onclick="location.href='../member/list.do'" />
 					</td>
 				</tr>
 			</tbody>
 		</table>
 </body>
+<script>
+<%
+if(session.getAttribute("isSuccess") != null){
+	if(session.getAttribute("isSuccess").equals("ok")){
+		session.removeAttribute("isSuccess");
+		%>alert("회원 정보 수정 성공");<%	
+	} else if(session.getAttribute("isSuccess").equals("fail")){
+		session.removeAttribute("isSuccess");
+		%>alert("회원 정보 수정 실패");<%
+	}
+}
+%>
+</script>
 </html>

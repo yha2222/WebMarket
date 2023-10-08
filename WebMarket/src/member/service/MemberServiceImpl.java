@@ -42,4 +42,16 @@ public class MemberServiceImpl implements IMemberService {
 		return memberDao.getMember(memId);
 	}
 
+	@Override
+	public int updateMember(MemberVO memVO) {
+		return memberDao.updateMember(memVO);
+	}
+
+	@Override
+	public int deleteMember(String memId) {
+		return memberDao.deleteMember(memId);
+	}
+
+
+
 }
